@@ -19,6 +19,18 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db= firebase.database()
 #Code goes below here
+@app.route('/' , methods=['GET', 'POST'])
+def generalform():
+    if request.method == 'POST':
+        name= request.form['name']
+        gender= request.form['sex']
+        dob= request.form['dob']
+        bg= request.form['bg']
+        illnesses= request.form['illness']
+        meds= request.form['meds']
+        return render_template('index.html')
+    else: 
+        return render_template('index.html')
 
 
 
