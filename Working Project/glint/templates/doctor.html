@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+  body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0fafa;
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h2, h4 {
+    color: #007f7f;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+  }
+
+  input[type="submit"] {
+    background-color: #007f7f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #005f5f;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  label {
+    color: #007f7f;
+    font-weight: bold;
+  }
+
+  input[type="checkbox"]::after,
+  input[type="radio"]::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #007f7f;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  input[type="checkbox"]:checked::after,
+  input[type="radio"]:checked::after {
+    background-color: #007f7f;
+  }
+
+  br {
+    clear: both;
+  }
+      .intro-section {
+      background-color: #007f7f;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .intro-section h1 {
+      font-size: 24px;
+    }
+
+    .intro-section p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    .alert-button {
+      background-color: #00afaf;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .alert-button:hover {
+      background-color: #008f8f;
+    }
+        .alert-button,
+    .patient-buttons {
+      background-color: #00afaf;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .alert-button:hover,
+    .patient-buttons:hover {
+      background-color: #008f8f;
+    }
+
+    .patient-buttons {
+      margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+      <div class="intro-section">
+        <h1>Medical Form for Patients</h1>
+        <p>
+          Welcome to our Medical Form. Please fill out the required information below to help us better understand your medical history.
+        </p>
+        <button class="alert-button" onclick="alertPatient()">Alert for Patient</button>
+      </div>
+    <form action="/MedicalHub" method= "post">
+        Name (optional):
+        <input type= "text" name="name" placeholder="Name">
+        <br>
+        Sex:
+        <br>
+        <input type="radio" name="sex" value="female"> Female
+        <br>
+        <input type="radio" name="sex" value="male"> Male
+        <br>
+        Ethnic Background:
+        <input type="text" name="bg">
+        <br>
+        Other Major ilnesses:
+        <input type="text" name="illness">
+        <br>
+        Medications taken regularly:
+        <input type="text" name="meds">
+        <br>
+        Age when allergic signs started showing:
+        <input type="number" name="age">
+        <br>
+        <h4>What were the signs of the allergic reaction? </h4>
+        <input type="checkbox" name="signs" value= "rash">Local Rash
+        <br>
+        <input type="checkbox" name="signs" value= "swelling"> Local Swelling
+        <br>
+        <input type="checkbox" name="signs" value= "vomit"> Vomitting and/or Diarrhea
+        <br>
+        <input type="checkbox" name="signs" value= "Runny Nose">Runny Nose
+        <br>
+        <input type="checkbox" name="signs" value= "cough"> Coughing
+        <br>
+        <input type="checkbox" name="signs" value= "wheezing"> Wheezing
+        <br>
+        <input type="checkbox" name="signs" value= "breath"> Shortness of Breath
+        <br>
+        <input type="checkbox" name="signs" value= "loss"> Loss of Consciousness
+        <br>
+        <h4> Other? </h4>
+        <input type="text" name="other">
+        <br>
+        Age of diagnosis:
+        <input type="number" name="age1">
+        <h4>Diagnosed by:</h4>
+        <input type="radio" name="diagnos" value="ad"> Allergy Doctor
+        <br>
+        <input type="radio" name="diagnos" value="ped">Pediatrician
+        <br>
+        <input type="radio" name="diagnos" value="fp"> Family physician
+        <br>
+        <input type="radio" name="diagnos" value="gas"> Gastroenterologist
+        <br>
+        <h2>How was the diagnosis made?</h2>
+        Skin prick test (value in mm):
+        <input type="text" name="skin_prick_test">
+        <br>
+        Blood test for peanut specific IgE (value):
+        <input type="text" name="blood_test_ige">
+        <br>
+        Positive / negative food challenge test (threshold dose):
+        <input type="text" name="food_challenge">
+        <br>
+        <h2>Does the patient have an additional allergy to one or more of the following foods?</h2>
+    <input type="checkbox" name="food_allergies" value="cow_milk"> Cow Milk
+    <input type="checkbox" name="food_allergies" value="eggs"> Eggs
+    <input type="checkbox" name="food_allergies" value="sesame"> Sesame
+    <input type="checkbox" name="food_allergies" value="fish_seafood"> Fish or Seafood
+    <input type="checkbox" name="food_allergies" value="wheat"> Wheat
+    <input type="checkbox" name="food_allergies" value="soy"> Soy
+    <input type="checkbox" name="food_allergies" value="various_nuts"> Various Nuts
+    <input type="checkbox" name="food_allergies" value="kiwi"> Kiwi
+    <input type="checkbox" name="food_allergies" value="mango"> Mango
+    <br>
+    Other Foods:
+    <input type="text" name="other_foods">
+    <br>
+    <h2>Does the patient suffer allergic reactions to any additional allergens?</h2>
+    <input type="checkbox" name="additional_allergens" value="dust"> Dust
+    <input type="checkbox" name="additional_allergens" value="mold"> Mold
+    <input type="checkbox" name="additional_allergens" value="animals"> Animals
+    Specify animals:
+    <input type="text" name="animals_specify">
+    <br>
+    <input type="checkbox" name="additional_allergens" value="trees"> Trees
+    Specify trees: <input type="text" name="trees_specify"><br>
+    <input type="checkbox" name="additional_allergens" value="grass"> Grass
+    <input type="checkbox" name="additional_allergens" value="other_plants"> Other Plants
+    <br>
+    Specify other plants:
+    <input type="text" name="other_plants_specify">
+    <br>
+    <input type="checkbox" name="additional_allergens" value="latex"> Latex
+    <input type="checkbox" name="additional_allergens" value="other_allergens"> Other Allergens
+    <br>
+    Specify other allergens: <input type="text" name="other_allergens_specify">
+    <br>
+
+    <h2>Does the patient suffer from other allergic diseases?</h2>
+    <input type="checkbox" name="other_allergic_diseases" value="atopic_dermatitis"> Atopic Dermatitis
+    <input type="checkbox" name="other_allergic_diseases" value="chronic_rhinitis"> Chronic Rhinitis
+    <input type="checkbox" name="other_allergic_diseases" value="allergic_conjunctivitis"> Allergic Conjunctivitis
+    <input type="checkbox" name="other_allergic_diseases" value="asthma_spastic_bronchitis"> Asthma / Spastic Bronchitis
+    <input type="checkbox" name="other_allergic_diseases" value="allergy_to_drugs"> Allergy to any Drugs
+    Other Allergic Diseases: <input type="text" name="other_allergic_diseases">
+    <br>
+
+    <h2>Is the patient receiving preventive treatment?</h2>
+    <input type="checkbox" name="preventive_treatment" value="pills"> Pills / Syrup
+    <input type="checkbox" name="preventive_treatment" value="eye_drops"> Eye Drops
+    <input type="checkbox" name="preventive_treatment" value="nasal_spray"> Nasal Spray
+    <input type="checkbox" name="preventive_treatment" value="asthma_inhaler"> Asthma Inhaler
+    <br>
+
+    <h2>Do any first-degree family members (parents and siblings) suffer or have suffered from any of the following diseases?</h2>
+    <input type="checkbox" name="family_morbidity" value="food_allergy"> Food Allergy
+    <input type="checkbox" name="family_morbidity" value="atopic_dermatitis"> Atopic Dermatitis
+    <input type="checkbox" name="family_morbidity" value="chronic_rhinitis"> Chronic Rhinitis
+    <input type="checkbox" name="family_morbidity" value="allergic_conjunctivitis"> Allergic Conjunctivitis
+    <input type="checkbox" name="family_morbidity" value="asthma_spastic_bronchitis"> Asthma / Spastic Bronchitis
+    <br>
+    Details on family morbidity:
+    <input type="text" name="family_morbidity_details">
+    <br>
+
+    <input type="submit" value="Submit">
+
+    </form>
+    {% if sucsses %}
+        <p>Form submited sucssesfully</p>
+    {% endif %}
+
+      <div style="text-align: center;">
+        <button class="patient-buttons" >Patient Confirm</button>
+        <button class="patient-buttons">Cancel Patient</button>
+      </div>
+</body>
+</html>
